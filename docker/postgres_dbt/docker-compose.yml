@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+    service_1:
+        build: ./${service_1}
+        image: ${service_1}
+        container_name: ${service_1}
+        expose:
+          - "${port_1}"
+        env_file:
+            - .env
+        healthcheck:
+           test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} || exit 1
+           interval: 5s
+           timeout: 3s
+           retries: 5
+
+    service_2:
+        build: ./${service_2}
+        image: ${service_2}
+        container_name: ${service_2}
+        env_file:
+            - .env
+        volumes:
+          - ../../volumes/${volume}:/app/home
+

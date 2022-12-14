@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+
+    service: 
+        build: ./${service_1}
+        image: ${service}
+        container_name: ${service}
+        ports:
+          - "${port}:${port}"
+        volumes:
+          - ../../volumes/${volume}:/app/home
+        volumes:
+          - ../../volumes/${scripts}:/docker-entrypoint-initdb.d/
+          - ../../volumes/${data}:/var/lib/postgresql/initdata
+        env_file:
+          - .env
+        healthcheck:
+           test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -p ${port} || exit 1
+           interval: 5s
+           timeout: 3s
+           retries: 5 

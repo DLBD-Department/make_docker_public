@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+
+    service_1: 
+        build: ./${service_1}
+        image: ${service_1}
+        container_name: ${service_1}
+        ports:
+          - "${port}:${port}"
+          - "36829:36829"
+            #        volumes:
+            #          - ../../volumes/${volume}:/app/home
