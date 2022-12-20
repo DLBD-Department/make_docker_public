@@ -26,4 +26,3 @@ services:
             - .env
         volumes:
           - ../../volumes/${volume_2}:/app
-
