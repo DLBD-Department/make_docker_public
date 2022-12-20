@@ -21,5 +21,6 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 36829
 ENV PATH="/opt/venv/bin:$PATH"
+ENV JUPYTER_TOKEN access
 #CMD ["mlflow", "server", "-h", "0.0.0.0", "-p", "5000", "--backend-store-uri", "postgresql://mlflow_admin:mlflow_password_22@db:5432/mlflow", "--default-artifact-root", "s3://mlflowartifactstoredlbd"] 
-CMD ["jupyter", "lab", "--port", "8080", "--allow-root", "--no-browser", "--ip", "*"] 
+CMD ["jupyter", "lab", "--port", "8080", "--allow-root", "--no-browser", "--ip", "*"]

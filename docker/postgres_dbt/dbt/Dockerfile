@@ -19,5 +19,5 @@ COPY --from=compile-image /opt/venv /opt/venv
 WORKDIR /app
 
 ENV PATH="/opt/venv/bin:$PATH"
-ENV DBT_PROFILES_DIR /app/home
+ENV DBT_PROFILES_DIR /app
 ENTRYPOINT ["tail", "-f", "/dev/null"]

@@ -8,6 +8,5 @@ services:
         container_name: ${service_1}
         ports:
           - "${port}:${port}"
-          - "36829:36829"
-            #        volumes:
-            #          - ../../volumes/${volume}:/app/home
+        volumes:
+          - ../../volumes/${volume}:/app

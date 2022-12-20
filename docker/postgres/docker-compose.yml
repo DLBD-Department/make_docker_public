@@ -9,10 +9,7 @@ services:
         ports:
           - "${port}:${port}"
         volumes:
-          - ../../volumes/${volume}:/app/home
-        volumes:
-          - ../../volumes/${scripts}:/docker-entrypoint-initdb.d/
-          - ../../volumes/${data}:/var/lib/postgresql/initdata
+          - ../../volumes/${volume}:/app
         env_file:
           - .env
         healthcheck:
