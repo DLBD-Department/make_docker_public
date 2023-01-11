@@ -1,6 +1,7 @@
+ifneq ($(service),)
 include ./docker/$(service)/.env
 export
-
+endif
 SHELL = /bin/bash
 .DEFAULT_GOAL := help
 
@@ -9,12 +10,19 @@ SHELL = /bin/bash
 # start service
 
 start: 
-	@export service=$(service)
 	@docker-compose -f ./docker/$(service)/docker-compose.yml up --build -d
 
 stop:
-	@export service=$(service)
 	@docker-compose -f ./docker/$(service)/docker-compose.yml down
+
+shell:
+	@docker exec -it $(docker) /bin/bash
+
+started:
+	@docker ps --no-trunc --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}\t{{.Mounts}}"
+
+available:
+	@ls docker/
 
 help:
 	@echo "- make start service=<path_of_service_contained in docker folder>"
