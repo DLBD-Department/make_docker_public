@@ -25,7 +25,10 @@ available:
 	@ls docker/
 
 help:
+	@echo "- make avaiable (will print the available services that you can run)"
+	@echo "- make started will print the currently running services)"
 	@echo "- make start service=<path_of_service_contained in docker folder>"
 	@echo "- make stop service=<path of service contained in docker folder and previously started>"
+	@echo "- make shell docker=<name of started container that you want to connect to>"
 
 FORCE:
