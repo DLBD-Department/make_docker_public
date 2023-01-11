@@ -15,8 +15,6 @@ services:
            interval: 5s
            timeout: 3s
            retries: 5
-        volumes:
-          - ../../volumes/${volume_1}:/app
 
     service_2:
         build: ./${service_2}
@@ -25,4 +23,4 @@ services:
         env_file:
             - .env
         volumes:
-          - ../../volumes/${volume_2}:/app
+          - ../../volumes/${volume_1}:/app
