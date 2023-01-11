@@ -3,7 +3,11 @@ version: "3.8"
 services:
 
     service_1: 
-        build: ./${service_1}
+	build:
+	  context: ./${service_1}
+	  args:
+	  - USER_ID=1000
+	  - GROUP_ID=1000
         image: ${service_1}
         container_name: ${service_1}
         ports:
